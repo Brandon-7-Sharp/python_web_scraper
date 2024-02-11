@@ -12,6 +12,19 @@ pip install beautifulsoup4
 pip install requests
 ```
 
+Next, you need to create a new enviroment with the requirements.yaml peovided in this repo.
+
+In the CMD, go to the location where you have this repo in your computer.
+
+Then, create a new enviroment from the requirements.yaml provided in this repo, where my_yaml_env_name is the name you create for your enviroment.
+```
+conda create --name my_yaml_env_name --file requirements.yaml
+```
+Then make sure the enviroment is activated by typing the below code in the same location in the cmd, where my_yaml_env_name is the name you create for your enviroment.
+```
+git activate my_yaml_env_name
+```
+
 ## Explanation
 Imports beautifulsoup4 from bs4 and imports requests
 ```
@@ -42,3 +55,8 @@ for t in title:
 for paragraph in paragraphs:
     print(paragraph.text)
     ```
+
+## Output
+The program will output 5 text files called Article1 - Article5.
+
+Each one will have a different article in them.
