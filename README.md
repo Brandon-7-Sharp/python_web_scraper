@@ -47,14 +47,15 @@ Looks through the HTML to find all the info in div tags where id=article-body
 ```
 paragraphs = soup.findAll('div', attrs={"id":"article-body"})
 ```
-```
+
 Loops through the title and paragraph HTML information scraped and outputs it
+```
 for t in title:
     print(t.text)
 
 for paragraph in paragraphs:
     print(paragraph.text)
-    ```
+```
 
 ## Output
 The program will output 5 text files called Article1 - Article5.
