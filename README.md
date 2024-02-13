@@ -26,16 +26,16 @@ git activate my_yaml_env_name
 ```
 
 ## Explanation
-Imports beautifulsoup4 from bs4 and imports requests
+Imports beautifulsoup4 from bs4 and imports requests.
 ```
 from bs4 import BeautifulSoup
 import requests
 ```
-Uses requests to send an HTML get requests for the contents of the specified webpage
+Uses requests to send an HTML get requests for the contents of the specified webpage.
 ```
 webpage = requests.get("https://www.space.com/40547-spacex-rocket-evolution.html")
 ```
-Creates a parse tree to extract data from HTML and sets it to soup
+Creates a parse tree to extract data from HTML and sets it to soup.
 ```
 soup = BeautifulSoup(webpage.text, "html.parser")
 ```
@@ -44,11 +44,8 @@ Looks through the HTML to find all the info in div tags where id=article-body
 paragraphs = soup.findAll('div', attrs={"id":"article-body"})
 ```
 
-Loops through the title and paragraph HTML information scraped and outputs it
+Loops through the paragraph HTML information scraped and outputs it.
 ```
-for t in title:
-    print(t.text)
-
 for paragraph in paragraphs:
     print(paragraph.text)
 ```
