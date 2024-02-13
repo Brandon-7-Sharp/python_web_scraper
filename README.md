@@ -12,7 +12,7 @@ pip install beautifulsoup4
 pip install requests
 ```
 
-Next, you need to create a new enviroment with the requirements.yaml peovided in this repo.
+Next, you need to create a new enviroment with the requirements.yaml provided in this repo.
 
 In the CMD, go to the location where you have this repo in your computer.
 
