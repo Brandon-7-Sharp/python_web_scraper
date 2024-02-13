@@ -39,10 +39,6 @@ Creates a parse tree to extract data from HTML and sets it to soup
 ```
 soup = BeautifulSoup(webpage.text, "html.parser")
 ```
-Looks through the HTML to find all the info in div tags where class=news-article
-```
-title = soup.findAll('div', attrs={"class":"news-article"})
-```
 Looks through the HTML to find all the info in div tags where id=article-body
 ```
 paragraphs = soup.findAll('div', attrs={"id":"article-body"})
