@@ -46,18 +46,3 @@ class WebScraper:
             file1.write(str(paragraph))
         # Closes the file
         file1.close()
-
-
-# def main():
-#     web_link = WebLinkReader("Weblinks.txt")
-#     webArray: list[str] = web_link.read_web_links()
-
-#     web_scraper = WebScraper()
-
-#     # Loops through the webArray, scraping the data in them and outputs them into a text file:
-#     for i, link in enumerate(webArray):
-#         web_scraper.scrape_data(link, i)
-
-
-# if __name__ == 'main':
-#     main()
