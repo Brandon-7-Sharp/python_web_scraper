@@ -91,17 +91,5 @@ def main():
          writer.write_data(paragraphs, i, path_for_PROCESSED)
 
 
-
-
-
-
-    # weblink_reader = rd.FileReader("Weblinks.txt")
-    # web_links: list[str] = weblink_reader.read_web_links()
-
-    # for i in range(5):
-    #     writer.write_data(web_scraper, link, i)
-
-    
-     
 if __name__ == "__main__":
     main()
