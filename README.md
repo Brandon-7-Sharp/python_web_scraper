@@ -28,13 +28,14 @@ git activate my_yaml_env_name
 ## refine_data.py Explanation:
 
 ### Imports:
-Imports beautifulsoup4 from bs4.
+Imports os and beautifulsoup4 from bs4.
 ```
+import os
 from bs4 import BeautifulSoup
 ```
 
 ### Classes:
-FileScraper Class
+FileScraper Class: Has the function 'scrape_data(self, i: int, path_raw: str) -> str' that takes in an instance of the FileScraper class (self) and the index of which raw data text file (path_raw). It first opens the raw data file (path given from parameters), then it uses BeautifulSoup to parse the html in that file by using the BeautifulSoup function 'findAll('div', attrs={"id":"article-body"})' where in a div tag there is an id set to 'article-body'. It then returns all of that information as a string.
 
 ### summarize_data.py
 
