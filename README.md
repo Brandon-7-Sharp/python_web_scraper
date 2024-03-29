@@ -16,25 +16,24 @@ Then make sure the enviroment is activated by typing the below code in the same 
 git activate my_yaml_env_name
 ```
 
-## Explanation
-### run.py
+## run.py Explanation:
 
 
 
 
-### get_data.py
+## get_data.py Explanation:
 
 
 
-### refine_data.py
+## refine_data.py Explanation:
 
-#### Imports:
+### Imports:
 Imports beautifulsoup4 from bs4.
 ```
 from bs4 import BeautifulSoup
 ```
 
-#### Classes:
+### Classes:
 FileScraper Class
 
 ### summarize_data.py
