@@ -3,16 +3,7 @@
 This python program scrapes 5 Space related web pages for their information. It will not scrape ads, comments, or any other useless information.
 
 ## Getting Started
-First, you need to install two packages, beautifulsoup4 and requests
-
-```
-pip install beautifulsoup4
-```
-```
-pip install requests
-```
-
-Next, you need to create a new enviroment with the requirements.yaml provided in this repo.
+First, you need to create a new enviroment with the requirements.yaml provided in this repo.
 
 In the CMD, go to the location where you have this repo in your computer.
 
@@ -26,6 +17,29 @@ git activate my_yaml_env_name
 ```
 
 ## Explanation
+### run.py
+
+
+
+
+### get_data.py
+
+
+
+### refine_data.py
+
+#### Imports:
+Imports beautifulsoup4 from bs4.
+```
+from bs4 import BeautifulSoup
+```
+
+#### Classes:
+FileScraper Class
+
+### summarize_data.py
+
+
 Imports beautifulsoup4 from bs4 and imports requests.
 ```
 from bs4 import BeautifulSoup
