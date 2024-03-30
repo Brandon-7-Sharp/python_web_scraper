@@ -1,8 +1,9 @@
 # Python Web Scraper
 ## Description
-This python program scrapes 5 Space related web pages for their information. It will not scrape ads, comments, or any other useless information.
+This python program scrapes 10 Space related web pages for their information. It will not scrape ads, comments, or any other useless information.
 
-## Getting Started
+## Getting Started:
+### Setting Up An Environment:
 First, you need to create a new enviroment with the requirements.yaml provided in this repo.
 
 In the CMD, go to the location where you have this repo in your computer.
@@ -15,6 +16,28 @@ Then make sure the enviroment is activated by typing the below code in the same 
 ```
 git activate my_yaml_env_name
 ```
+
+### Creating An Open AI Account:
+First, go to the following link to create an account https://auth0.openai.com/u/signup/identifier?state=hKFo2SAwSV9uZXdRbXhKQXJOT3pZODhPc0lmSDlfVlpxLVlxSqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIEdqTlMxRDZvb2s5SDBuVHBfemRtZkI2XzZNek1ONHlwo2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q 
+
+Choose the 'Continue with Google' or other 'Continue with' options to make creating the account as easy as possible.
+
+### Generating an Open AI Key:
+After creating an account, when loggin in choose the option 'API' as shown in the image below.
+![image](https://github.com/Brandon-7-Sharp/python_web_scraper/assets/93329974/3a5f0389-15d9-45f8-9d95-985191d78f4b)
+
+Next, click the option 'API keys' of the left side navigation bar as shown in the image below.
+![image](https://github.com/Brandon-7-Sharp/python_web_scraper/assets/93329974/ab27c841-92de-4ee0-a55e-f430c84e9bbb)
+
+Then click on the '+ Create New Secret Key' button. Give it a name and leave permissions set to 'All'.
+
+MAKE SURE TO SAVE THE KEY THAT THEY GIVE YOU! DO NOT SHARE THIS KEY WITH ANYONE ELSE FOR SECURITY PURPOSES!
+
+### Using an Open AI Key:
+
+For this part I am assuming you are using a Windows device.
+First, we need to add the Open Ai key to our Windows system environment variables.
+In the Windows search bar, type 'Edit System Environmnet Path Variables' and click on the option that appears
 
 ## run.py Explanation:
 
