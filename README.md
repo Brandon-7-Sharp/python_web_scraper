@@ -70,9 +70,79 @@ response = client.chat.completions.create(
 ```
 
 ## run.py Explanation:
+run.py is the main python script for running this program. 
 
+### Imports:
+We first import the python scripts from modules 1, 2, and 3 so we can acces the classes created in them.
+Next we import OpenAI so we can send a request to summarize the website content.
+Lastly, we import os to use for getting system paths.
 
+```
+import module_1.get_data as gd
+import module_2.refine_data as rd
+import module_3.summarize_data as sd
+from openai import OpenAI
+import os
+```
 
+### Code Body:
+There are 3 main for loops that are used to iterate through text files for reading and writing data (Raw Data Files, Processed Data Files, Summarized Data Files).
+
+First, we create variable that are the path locations for where we want the raw, processed, and summarized data to be located.
+```
+path_for_RAW = "/Data/raw/RawArticle"
+path_for_PROCESSED = "/Data/processed/processedArticle"
+path_for_SUMMARIZED = "/Data/summarized/SummarizedArticle"
+```
+
+Next, we create a WebLinkReader Object named 'web_link' and send in the 'Weblinks.txt' to have it set as the 'link' Object variable.
+We also use the 'read_web_links()' function that returns the web links as values in 'webArray'.
+```
+web_link = gd.WebLinkReader("Weblinks.txt")
+webArray: list[str] = web_link.read_web_links()
+```
+
+We then iterate through the 'webArray' for each web address, creating 10 files with the raw html data.
+```
+for i, link in enumerate(webArray):
+    web_scraper_r.scrape_data(link, i, path_for_RAW)
+```
+
+Following, we create an Object from the FileScraper class named 'web_scraper_p' and we also create an Object from the WriteData class named 'writer'.
+```
+web_scraper_p = rd.FileScraper()
+writer = rd.WriteData()
+```
+
+We then iterate through the 'webArray' again, creating a 'paragraphs' string that is the processed data from the raw html text file.
+It is then written to the processed data text file.
+```
+for i, link in enumerate(webArray):
+    paragraphs: str = web_scraper_p.scrape_data(i, path_for_RAW)
+    writer.write_data(paragraphs, i, path_for_PROCESSED)
+```
+
+Next, we create an OpenAI Object named 'client', we set the OpenAI path for our API Key to our Windows Environment Path Value that we created earlier, and we create an Object of the WriteSummarized class named 'summarize'.
+```
+client = OpenAI()
+OpenAI.api_key = os.getenv('OPENAI_API_KEY')
+summarize = sd.WriteSummarized()
+```
+
+Lastly, we iterate through the 'webArray' again, opening the text file for the specified processed data and reading it into the 'paragraphs' string.
+We then create a request to OpenAI, asking it to "Give a title and summarize the following article in 50 words or less: {paragraphs}" where 'paraghraphs' is the processed article.
+And Finally, we use the 'write_summarized' function from the 'summarize' object to write the response from OpenAI.
+```
+for i, link in enumerate(webArray):
+    with open(os.path.dirname(__file__) + path_for_PROCESSED + str(i + 1), "r") as file:
+    paragraphs = file.read()
+
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": f"Give a title and summarize the following article in 50 words or less: {paragraphs}" }])
+
+    summarize.write_summarized(response.choices[0].message.content, i, path_for_SUMMARIZED)
+```
 
 ## get_data.py Explanation:
 
