@@ -33,11 +33,41 @@ Then click on the '+ Create New Secret Key' button. Give it a name and leave per
 
 MAKE SURE TO SAVE THE KEY THAT THEY GIVE YOU! DO NOT SHARE THIS KEY WITH ANYONE ELSE FOR SECURITY PURPOSES!
 
-### Using an Open AI Key:
+### Adding an Open AI Key to Windows Environment Path Variables:
 
 For this part I am assuming you are using a Windows device.
 First, we need to add the Open Ai key to our Windows system environment variables.
-In the Windows search bar, type 'Edit System Environmnet Path Variables' and click on the option that appears
+In the Windows search bar, type 'Edit System Environmnet Path Variables' and click on the option that appears below
+![image](https://github.com/Brandon-7-Sharp/python_web_scraper/assets/93329974/1b292323-2380-47a8-8a65-34c506070c02)
+
+Next, click on 'Environment Variables' as shown below.
+![image](https://github.com/Brandon-7-Sharp/python_web_scraper/assets/93329974/f75d3e24-6d28-4ec0-bba9-5cebcf4f5601)
+
+Under 'User Variables' click 'new.
+
+Next, name the variable name 'OPENAI_API_KEY' and the variable value set to the OpenAI API Key you saved earlier.
+
+Then click 'Ok' for all of the system tabs open.
+
+### Using an Open AI Key:
+First, for using OpenAi, you need to import 'OpenAI'.
+```
+from openai import OpenAI
+```
+
+Next, youu need to create an OpenAI Object, in my code I named it 'client'.
+You will also need to set the OpenAI API Key to the path variable we set up earlier.
+```
+client = OpenAI()
+OpenAI.api_key = os.getenv('OPENAI_API_KEY')
+```
+
+Lastly, you can send a request to OpenAI, where 'response' is what is given back from OpenAI, 'model' is the  version of gpt that you want to use, 'messages' is the information you want to send to OpenAI, 'role' as where the question should be formed as, and 'content' which is command or question sent to OpenAI.
+```
+response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": f"Give a title and summarize the following article in 50 words or less: {paragraphs}" }])
+```
 
 ## run.py Explanation:
 
