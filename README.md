@@ -69,8 +69,8 @@ response = client.chat.completions.create(
             messages=[{"role": "user", "content": f"Give a title and summarize the following article in 50 words or less: {paragraphs}" }])
 ```
 
-## run.py Explanation:
-run.py is the main python script for running this program. 
+## run.py:
+run.py is the main python script for running this program. You should navigate to the folder that 'run.py' is located and type 'python .\run.py' to run the program.
 
 ### Imports:
 We first import the python scripts from modules 1, 2, and 3 so we can acces the classes created in them.
